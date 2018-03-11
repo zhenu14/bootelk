@@ -1,0 +1,68 @@
+2018-03-11T13:55:34+08:00 INFO Metrics logging every 30s
+2018-03-11T13:55:34+08:00 INFO Home path: [C:\ideaCode\bootelk\filebeat-5.4.3-windows-x86_64] Config path: [C:\ideaCode\bootelk\filebeat-5.4.3-windows-x86_64] Data path: [C:\ideaCode\bootelk\filebeat-5.4.3-windows-x86_64\data] Logs path: [C:\ideaCode\bootelk\filebeat-5.4.3-windows-x86_64\logs]
+2018-03-11T13:55:35+08:00 INFO Setup Beat: filebeat; Version: 5.4.3
+2018-03-11T13:55:35+08:00 INFO Max Retries set to: 3
+2018-03-11T13:55:35+08:00 INFO Activated logstash as output plugin.
+2018-03-11T13:55:35+08:00 INFO Publisher name: DESKTOP-6E7BQPE
+2018-03-11T13:55:35+08:00 INFO Flush Interval set to: 1s
+2018-03-11T13:55:35+08:00 INFO Max Bulk Size set to: 2048
+2018-03-11T13:55:35+08:00 INFO filebeat start running.
+2018-03-11T13:55:35+08:00 INFO Registry file set to: C:\ideaCode\bootelk\filebeat-5.4.3-windows-x86_64\data\registry
+2018-03-11T13:55:35+08:00 INFO Loading registrar data from C:\ideaCode\bootelk\filebeat-5.4.3-windows-x86_64\data\registry
+2018-03-11T13:55:35+08:00 INFO States Loaded from registrar: 3
+2018-03-11T13:55:35+08:00 INFO Starting Registrar
+2018-03-11T13:55:35+08:00 INFO Starting spooler: spool_size: 2048; idle_timeout: 5s
+2018-03-11T13:55:35+08:00 INFO Loading Prospectors: 3
+2018-03-11T13:55:35+08:00 INFO Start sending events to output
+2018-03-11T13:55:35+08:00 INFO Prospector with previous states loaded: 0
+2018-03-11T13:55:35+08:00 INFO Starting prospector of type: log; id: 18534252466235281 
+2018-03-11T13:55:35+08:00 INFO Prospector with previous states loaded: 0
+2018-03-11T13:55:35+08:00 INFO Starting prospector of type: log; id: 12163980643241204337 
+2018-03-11T13:55:35+08:00 INFO Prospector with previous states loaded: 0
+2018-03-11T13:55:35+08:00 INFO Starting prospector of type: log; id: 13164899628986142261 
+2018-03-11T13:55:35+08:00 INFO Loading and starting Prospectors completed. Enabled prospectors: 3
+2018-03-11T13:55:35+08:00 INFO Harvester started for file: C:\ideaCode\bootelk\loginfo\logback.info.2018-03-11.log
+2018-03-11T13:55:35+08:00 INFO Harvester started for file: C:\ideaCode\bootelk\logwarn\logback.warn.2018-03-11.log
+2018-03-11T13:55:35+08:00 INFO Harvester started for file: C:\ideaCode\bootelk\logerror\logback.error.2018-03-11.log
+2018-03-11T13:55:42+08:00 ERR Connecting error publishing events (retrying): dial tcp 127.0.0.1:5044: connectex: No connection could be made because the target machine actively refused it.
+2018-03-11T13:55:45+08:00 ERR Connecting error publishing events (retrying): dial tcp 127.0.0.1:5044: connectex: No connection could be made because the target machine actively refused it.
+2018-03-11T13:55:49+08:00 ERR Connecting error publishing events (retrying): dial tcp 127.0.0.1:5044: connectex: No connection could be made because the target machine actively refused it.
+2018-03-11T13:55:55+08:00 ERR Connecting error publishing events (retrying): dial tcp 127.0.0.1:5044: connectex: No connection could be made because the target machine actively refused it.
+2018-03-11T13:56:05+08:00 INFO Non-zero metrics in the last 30s: filebeat.harvester.open_files=3 filebeat.harvester.running=3 filebeat.harvester.started=3 libbeat.publisher.published_events=72
+2018-03-11T13:56:05+08:00 ERR Connecting error publishing events (retrying): dial tcp 127.0.0.1:5044: connectex: No connection could be made because the target machine actively refused it.
+2018-03-11T13:56:23+08:00 ERR Connecting error publishing events (retrying): dial tcp 127.0.0.1:5044: connectex: No connection could be made because the target machine actively refused it.
+2018-03-11T13:56:35+08:00 INFO No non-zero metrics in the last 30s
+2018-03-11T13:57:05+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_bytes=24 libbeat.logstash.publish.write_bytes=3579 libbeat.logstash.published_and_acked_events=72 publish.events=75 registrar.states.current=6 registrar.states.update=75 registrar.writes=1
+2018-03-11T13:57:35+08:00 INFO No non-zero metrics in the last 30s
+2018-03-11T13:58:05+08:00 INFO No non-zero metrics in the last 30s
+2018-03-11T13:58:35+08:00 INFO No non-zero metrics in the last 30s
+2018-03-11T13:59:05+08:00 INFO No non-zero metrics in the last 30s
+2018-03-11T13:59:10+08:00 ERR Failed to publish events caused by: write tcp [::1]:36010->[::1]:5044: wsasend: An existing connection was forcibly closed by the remote host.
+2018-03-11T13:59:10+08:00 INFO Error publishing events (retrying): write tcp [::1]:36010->[::1]:5044: wsasend: An existing connection was forcibly closed by the remote host.
+2018-03-11T13:59:35+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=2 libbeat.logstash.publish.write_bytes=861 libbeat.logstash.publish.write_errors=1 libbeat.logstash.published_but_not_acked_events=12 libbeat.publisher.published_events=12
+2018-03-11T13:59:41+08:00 ERR Failed to publish events caused by: read tcp [::1]:38750->[::1]:5044: i/o timeout
+2018-03-11T13:59:41+08:00 INFO Error publishing events (retrying): read tcp [::1]:38750->[::1]:5044: i/o timeout
+2018-03-11T14:00:05+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_errors=1 libbeat.logstash.publish.write_bytes=720 libbeat.logstash.published_but_not_acked_events=12
+2018-03-11T14:00:13+08:00 ERR Failed to publish events caused by: read tcp [::1]:39499->[::1]:5044: i/o timeout
+2018-03-11T14:00:13+08:00 INFO Error publishing events (retrying): read tcp [::1]:39499->[::1]:5044: i/o timeout
+2018-03-11T14:00:35+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_errors=1 libbeat.logstash.publish.write_bytes=481 libbeat.logstash.published_but_not_acked_events=12
+2018-03-11T14:00:40+08:00 INFO File is inactive: C:\ideaCode\bootelk\logerror\logback.error.2018-03-11.log. Closing because close_inactive of 5m0s reached.
+2018-03-11T14:00:40+08:00 INFO File is inactive: C:\ideaCode\bootelk\logwarn\logback.warn.2018-03-11.log. Closing because close_inactive of 5m0s reached.
+2018-03-11T14:00:47+08:00 ERR Failed to publish events caused by: read tcp 127.0.0.1:40295->127.0.0.1:5044: i/o timeout
+2018-03-11T14:00:47+08:00 INFO Error publishing events (retrying): read tcp 127.0.0.1:40295->127.0.0.1:5044: i/o timeout
+2018-03-11T14:01:05+08:00 INFO Non-zero metrics in the last 30s: filebeat.harvester.closed=2 filebeat.harvester.open_files=-2 filebeat.harvester.running=-2 libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_errors=1 libbeat.logstash.publish.write_bytes=413 libbeat.logstash.published_but_not_acked_events=12
+2018-03-11T14:01:25+08:00 ERR Failed to publish events caused by: read tcp 127.0.0.1:41161->127.0.0.1:5044: i/o timeout
+2018-03-11T14:01:25+08:00 INFO Error publishing events (retrying): read tcp 127.0.0.1:41161->127.0.0.1:5044: i/o timeout
+2018-03-11T14:01:35+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.publish.read_errors=1 libbeat.logstash.published_but_not_acked_events=12
+2018-03-11T14:02:05+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_bytes=6 libbeat.logstash.publish.write_bytes=719
+2018-03-11T14:02:11+08:00 ERR Failed to publish events caused by: read tcp [::1]:42013->[::1]:5044: i/o timeout
+2018-03-11T14:02:11+08:00 INFO Error publishing events (retrying): read tcp [::1]:42013->[::1]:5044: i/o timeout
+2018-03-11T14:02:35+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_errors=1 libbeat.logstash.publish.write_bytes=328 libbeat.logstash.published_and_acked_events=1 libbeat.logstash.published_but_not_acked_events=11
+2018-03-11T14:02:42+08:00 ERR Failed to publish events caused by: read tcp 127.0.0.1:42657->127.0.0.1:5044: i/o timeout
+2018-03-11T14:02:42+08:00 INFO Error publishing events (retrying): read tcp 127.0.0.1:42657->127.0.0.1:5044: i/o timeout
+2018-03-11T14:03:05+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_errors=1 libbeat.logstash.publish.write_bytes=327 libbeat.logstash.published_but_not_acked_events=11
+2018-03-11T14:03:14+08:00 ERR Failed to publish events caused by: read tcp [::1]:43273->[::1]:5044: i/o timeout
+2018-03-11T14:03:14+08:00 INFO Error publishing events (retrying): read tcp [::1]:43273->[::1]:5044: i/o timeout
+2018-03-11T14:03:35+08:00 INFO Non-zero metrics in the last 30s: libbeat.logstash.call_count.PublishEvents=1 libbeat.logstash.publish.read_errors=1 libbeat.logstash.publish.write_bytes=333 libbeat.logstash.published_but_not_acked_events=11
+2018-03-11T14:03:44+08:00 ERR Failed to publish events caused by: read tcp 127.0.0.1:44037->127.0.0.1:5044: wsarecv: An existing connection was forcibly closed by the remote host.
+2018-03-11T14:03:44+08:00 INFO Error publishing events (retrying): read tcp 127.0.0.1:44037->127.0.0.1:5044: wsarecv: An existing connection was forcibly closed by the remote host.
