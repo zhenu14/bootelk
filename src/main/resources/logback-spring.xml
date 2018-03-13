@@ -18,7 +18,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>{"@timestamp":%d,"IpAddress":"%IpAddressConvert","tags": ["loginfo"],"message":%msg}%n</pattern>
+            <pattern>{"IpAddress":"%IpAddressConvert","message":"%msg"}%n</pattern>
         </encoder>
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -34,7 +34,7 @@
             <level>ERROR</level>
         </filter>
         <encoder>
-            <pattern>{"@timestamp":%d,"IpAddress":"%IpAddressConvert","tags": ["logerror"],"message":%msg}%n</pattern>
+            <pattern>{"IpAddress":"%IpAddressConvert","message":"%msg"}%n</pattern>
             <!--<provider class="net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProvider">-->
                 <!--<pattern>{"IpAddress":"%IpAddressConvert","tags": ["logerror"]}</pattern>-->
             <!--</provider>-->
@@ -55,7 +55,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>{"@timestamp":%d,"IpAddress":"%IpAddressConvert","tags": ["logwarn"],"message":%msg}%n</pattern>
+            <pattern>{"IpAddress":"%IpAddressConvert","message":"%msg"}%n</pattern>
             <!--<provider class="net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProvider">-->
                 <!--<pattern>{"IpAddress":"%IpAddressConvert","tags": ["logwarn"]}</pattern>-->
             <!--</provider>-->
