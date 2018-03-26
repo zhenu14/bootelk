@@ -18,7 +18,10 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.text.Text;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
@@ -304,7 +307,7 @@ public class ElasticsearchUtils {
         }
 
         //打印的内容 可以在 Elasticsearch head 和 Kibana  上执行查询
-        LOGGER.info("\n{}", searchRequestBuilder);
+//        LOGGER.info("\n{}", searchRequestBuilder);
 
         SearchResponse searchResponse = searchRequestBuilder.execute().actionGet();
 
@@ -447,6 +450,54 @@ public class ElasticsearchUtils {
                     searchHit.getSource().put(highlightField, stringBuffer.toString());
                 }
             }
+            sourceList.add(searchHit.getSource());
+        }
+        return sourceList;
+    }
+
+    public static List<Map<String, Object>> RangeSearch(String rangeField,String start,String end,String displayField){
+
+        //时间范围的设定
+        RangeQueryBuilder rangequerybuilder = QueryBuilders
+                .rangeQuery(rangeField)
+                .from(start).to(end);
+
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+        sourceBuilder.query(rangequerybuilder);
+
+        //查询建立
+        SearchRequestBuilder searchRequestBuilder = client
+                .prepareSearch("abc")
+                .setTypes("logs");
+        searchRequestBuilder.setSearchType(SearchType.QUERY_THEN_FETCH);
+
+        // 需要显示的字段，逗号分隔（缺省为全部字段）
+        if (StringUtils.isNotEmpty(displayField)) {
+            searchRequestBuilder.setFetchSource(displayField.split(","), null);
+        }
+
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+        boolQueryBuilder.must(QueryBuilders.matchPhraseQuery ("level","ERROR"));
+        boolQueryBuilder.must(rangequerybuilder);
+
+        searchRequestBuilder.setQuery(QueryBuilders.matchAllQuery());
+        searchRequestBuilder.setQuery(boolQueryBuilder);
+        // 设置是否按查询匹配度排序
+        searchRequestBuilder.setExplain(true);
+        searchRequestBuilder.setFrom(0).setSize(100);
+
+        // 执行搜索,返回搜索响应信息
+        SearchResponse searchResponse = searchRequestBuilder.execute().actionGet();
+
+        long totalHits = searchResponse.getHits().totalHits;
+        long length = searchResponse.getHits().getHits().length;
+
+        LOGGER.info("共查询到[{}]条数据,处理数据条数[{}]", totalHits, length);
+
+        List<Map<String, Object>> sourceList = new ArrayList<Map<String, Object>>();
+
+        for (SearchHit searchHit : searchResponse.getHits().getHits()) {
+            searchHit.getSource().put("id", searchHit.getId());
             sourceList.add(searchHit.getSource());
         }
         return sourceList;

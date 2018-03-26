@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <property name="appname" value="abc" />
     <conversionRule conversionWord="IpAddressConvert" converterClass="com.bootelk.web.logbackExt.convert.IpAddressConvert" />
+
+
     <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>
-                %d - %msg%n
+                %d - %logger %msg  %n
             </pattern>
         </layout>
     </appender>
@@ -18,8 +21,9 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>{"IpAddress":"%IpAddressConvert","message":"%msg"}%n</pattern>
-        </encoder>
+            <pattern>
+                {"appname": "${appname}","level": "%level","logtime":"%d","ip":"%IpAddressConvert","message": "%msg","logger":"%logger"}%n
+            </pattern>        </encoder>
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
@@ -34,7 +38,9 @@
             <level>ERROR</level>
         </filter>
         <encoder>
-            <pattern>{"IpAddress":"%IpAddressConvert","message":"%msg"}%n</pattern>
+            <pattern>
+                {"appname": "${appname}","level": "%level","logtime":"%d","ip":"%IpAddressConvert","message": "%msg","logger":"%logger"}%n
+            </pattern>
             <!--<provider class="net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProvider">-->
                 <!--<pattern>{"IpAddress":"%IpAddressConvert","tags": ["logerror"]}</pattern>-->
             <!--</provider>-->
@@ -55,10 +61,9 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>{"IpAddress":"%IpAddressConvert","message":"%msg"}%n</pattern>
-            <!--<provider class="net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProvider">-->
-                <!--<pattern>{"IpAddress":"%IpAddressConvert","tags": ["logwarn"]}</pattern>-->
-            <!--</provider>-->
+            <pattern>
+                {"appname": "${appname}","level": "%level","logtime":"%d","ip":"%IpAddressConvert","message": "%msg","logger":"%logger"}%n
+            </pattern>
         </encoder>
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">

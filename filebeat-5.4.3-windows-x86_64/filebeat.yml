@@ -16,24 +16,27 @@ filebeat.prospectors:
 # Below are the prospector specific configurations.
 
 - input_type: log
-
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
     - ../loginfo/*.log
-  document_type: loginfo_log
+  json.keys_under_root: true
+  #fields:
+  #  type: loginfo_log
   
 - input_type: log
-
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
     - ../logwarn/*.log
-  document_type: logwarn_log
+  json.keys_under_root: true
+  #fields:
+  #  type: logwarn_log
   
 - input_type: log
-
   paths:
     - ../logerror/*.log
-  document_type: logerror_log
+  json.keys_under_root: true
+  #fields:
+  # type: logerror_log
     #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
@@ -102,9 +105,10 @@ filebeat.prospectors:
   #password: "changeme"
 
 #----------------------------- Logstash output --------------------------------
-output.logstash:
+#output.logstash:
   # The Logstash hosts
-  hosts: ["localhost:5044"]
+  #hosts: ["localhost:5044"]
+  #hosts: ["120.77.217.132:5044"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications
@@ -115,7 +119,12 @@ output.logstash:
 
   # Client Certificate Key
   #ssl.key: "/etc/pki/client/cert.key"
-
+ 
+output.redis:
+  hosts: ["localhost:6379"]
+  #hosts: ["120.77.217.132:6379"]
+  key: "log"
+  
 #================================ Logging =====================================
 
 # Sets log level. The default log level is info.

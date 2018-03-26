@@ -23,7 +23,7 @@ public class HomeController {
 
     @RequestMapping(value = {"index"})
     public Object index() {
-        for(int i = 0;i < 20;i++){
+        for(int i = 0;i <100;i++){
             logger.info("------------啊info-----------");
             logger.warn("------------啊warn-----------");
             logger.error("------------啊error-----------");

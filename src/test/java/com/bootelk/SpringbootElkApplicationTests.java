@@ -19,10 +19,10 @@ public class SpringbootElkApplicationTests {
     @Test
     public void test() throws Exception {
 
-        for(int i=0;i<10;i++) {
+        for(int i=0;i<100;i++) {
             logger.info("输出info  ");
             logger.warn("输出warn");
-            logger.error("输出error  嗡嗡嗡我");
+            logger.error("输出error");
         }
     }
 

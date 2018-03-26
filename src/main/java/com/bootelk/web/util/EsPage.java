@@ -18,6 +18,7 @@ public class EsPage {
     private int beginPageIndex; // 页码列表的开始索引（包含）
     private int endPageIndex; // 页码列表的结束索引（包含）
 
+
     /**
      * 只接受前4个必要的属性，会自动的计算出其他3个属性的值
      *
@@ -58,4 +59,62 @@ public class EsPage {
             }
         }
     }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public int getRecordCount() {
+        return recordCount;
+    }
+
+    public void setRecordCount(int recordCount) {
+        this.recordCount = recordCount;
+    }
+
+    public List<Map<String, Object>> getRecordList() {
+        return recordList;
+    }
+
+    public void setRecordList(List<Map<String, Object>> recordList) {
+        this.recordList = recordList;
+    }
+
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    public int getBeginPageIndex() {
+        return beginPageIndex;
+    }
+
+    public void setBeginPageIndex(int beginPageIndex) {
+        this.beginPageIndex = beginPageIndex;
+    }
+
+    public int getEndPageIndex() {
+        return endPageIndex;
+    }
+
+    public void setEndPageIndex(int endPageIndex) {
+        this.endPageIndex = endPageIndex;
+    }
+
+
 }
