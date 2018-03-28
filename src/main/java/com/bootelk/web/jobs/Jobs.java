@@ -15,8 +15,8 @@ import java.util.Map;
 public class Jobs {
     public final static long Five_Minute =  60 * 1000 * 30;  //5分钟
 
-//    @Autowired
-//    private MailService mailService;
+    @Autowired
+    private MailService mailService;
 
     //fixedDelay是当任务执行完毕后1分钟在执行
 //    @Scheduled(fixedDelay=ONE_Minute)
@@ -25,18 +25,19 @@ public class Jobs {
 //    }
 
     //fixedRate就是每分钟一次，不论你业务执行花费了多少时间
-//    @Scheduled(fixedRate=Five_Minute)
-//    public void fixedRateJob(){
-//        List<Map<String, Object>> results = ElasticsearchUtils.RangeSearch("@timestamp","now-1h/h","now/h");
-//        StringBuilder stringBuilder = new StringBuilder();
-//        stringBuilder.append("共查询到results{" + results.size() + 1 + "}条数据");
-//        for(Map<String, Object> item : results){
-//            System.out.println(JSONObject.toJSONString(item));
-//            stringBuilder.append(JSONObject.toJSONString(item));
-//            stringBuilder.append("\r\n");
-//        }
-//        mailService.sendSimpleMail("790507071@qq.com", "主题：日志异常", stringBuilder.toString());
-//    }
+    @Scheduled(fixedRate=Five_Minute)
+    public void fixedRateJob(){
+        String field = "appname,level,ip,message";
+        List<Map<String, Object>> results = ElasticsearchUtils.RangeSearch("@timestamp","now-24h/h","now/h",field);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("共查询到results{" + results.size() + "}条数据");
+        for(Map<String, Object> item : results){
+            System.out.println(JSONObject.toJSONString(item));
+            stringBuilder.append(JSONObject.toJSONString(item));
+            stringBuilder.append("\r\n");
+        }
+        mailService.sendSimpleMail("790507071@qq.com", "主题：日志异常", stringBuilder.toString());
+    }
 
     /**
      * cron一共有7位，但是最后一位是年，可以留空，所以我们可以写6位

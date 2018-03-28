@@ -30,10 +30,10 @@ import java.util.concurrent.TimeUnit;
 
 public class RestClientTest {
     private static RestClient restClient;
-
+    @Before
     public void getRestClient(){
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-        credentialsProvider.setCredentials(AuthScope.ANY,new UsernamePasswordCredentials("", ""));
+        credentialsProvider.setCredentials(AuthScope.ANY,new UsernamePasswordCredentials("elastic", "123456"));
         restClient = RestClient.builder(new HttpHost("localhost",9200,"http"))
                 .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
                     @Override
@@ -44,7 +44,7 @@ public class RestClientTest {
 
     }
 
-    @Before
+//    @Before
     public void getRest(){
         restClient = RestClient.builder(new HttpHost("localhost", 9200, "http")).build();
     }
@@ -163,7 +163,7 @@ public class RestClientTest {
     @Test
     public void aa() throws Exception{
         String method = "GET";
-        String endpoint = "/abc/_search";
+        String endpoint = "/abc-error-*/_search";
         HttpEntity entity = new NStringEntity("" +
                 "{\n" +
                 "  \"query\": {\n" +

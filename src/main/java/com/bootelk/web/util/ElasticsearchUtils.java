@@ -467,7 +467,7 @@ public class ElasticsearchUtils {
 
         //查询建立
         SearchRequestBuilder searchRequestBuilder = client
-                .prepareSearch("abc")
+                .prepareSearch("abc-error-2018.03.28")
                 .setTypes("logs");
         searchRequestBuilder.setSearchType(SearchType.QUERY_THEN_FETCH);
 
@@ -477,7 +477,7 @@ public class ElasticsearchUtils {
         }
 
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-        boolQueryBuilder.must(QueryBuilders.matchPhraseQuery ("level","ERROR"));
+        boolQueryBuilder.must(QueryBuilders.matchPhraseQuery ("level","error"));
         boolQueryBuilder.must(rangequerybuilder);
 
         searchRequestBuilder.setQuery(QueryBuilders.matchAllQuery());

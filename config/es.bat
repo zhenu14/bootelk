@@ -1,1 +1,0 @@
-logstash -f es.conf 

@@ -3,8 +3,6 @@
 
     <property name="appname" value="abc" />
     <conversionRule conversionWord="IpAddressConvert" converterClass="com.bootelk.web.logbackExt.convert.IpAddressConvert" />
-
-
     <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>
@@ -23,7 +21,8 @@
         <encoder>
             <pattern>
                 {"appname": "${appname}","level": "%level","logtime":"%d","ip":"%IpAddressConvert","message": "%msg","logger":"%logger"}%n
-            </pattern>        </encoder>
+            </pattern>
+        </encoder>
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->

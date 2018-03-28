@@ -16,28 +16,23 @@ filebeat.prospectors:
 # Below are the prospector specific configurations.
 
 - input_type: log
-  # Paths that should be crawled and fetched. Glob based paths.
   paths:
     - ../loginfo/*.log
   json.keys_under_root: true
-  #fields:
-  #  type: loginfo_log
+  ignore_older: 24h
   
 - input_type: log
-  # Paths that should be crawled and fetched. Glob based paths.
   paths:
     - ../logwarn/*.log
   json.keys_under_root: true
-  #fields:
-  #  type: logwarn_log
+  ignore_older: 24h
   
 - input_type: log
   paths:
     - ../logerror/*.log
   json.keys_under_root: true
-  #fields:
-  # type: logerror_log
-    #- c:\programdata\elasticsearch\logs\*
+  ignore_older: 24h
+  
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list.
@@ -123,7 +118,20 @@ filebeat.prospectors:
 output.redis:
   hosts: ["localhost:6379"]
   #hosts: ["120.77.217.132:6379"]
-  key: "log"
+  #key: "default_list"
+  keys:
+    - key: "info_list"
+      when.contains:
+        level: "INFO"
+    - key: "error_list"
+      when.contains:
+        level: "ERROR"
+    - key: "warn_list"
+      when.contains:
+        level: "WARN"
+
+
+  #key: "log"
   
 #================================ Logging =====================================
 
