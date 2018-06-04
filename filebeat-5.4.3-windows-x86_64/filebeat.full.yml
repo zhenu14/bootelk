@@ -365,14 +365,14 @@ filebeat.prospectors:
 #================================ General ======================================
 
 # The name of the shipper that publishes the network data. It can be used to group
-# all the transactions sent by a single shipper in the web interface.
+# all the transactions sent by a single shipper in the alert interface.
 # If this options is not defined, the hostname is used.
 #name:
 
 # The tags of the shipper are included in their own field with each
 # transaction published. Tags make it easy to group servers by different
 # logical properties.
-#tags: ["service-X", "web-tier"]
+#tags: ["service-X", "alert-tier"]
 
 # Optional fields that you can specify to add additional information to the
 # output. Fields can be scalar values, arrays, dictionaries, or any nested
